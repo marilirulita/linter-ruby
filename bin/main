@@ -1,2 +1,7 @@
 #!/usr/bin/env ruby
-puts "hello world"
+
+class HelloWorld
+  def hello
+    puts 'hello world'
+  end
+end
