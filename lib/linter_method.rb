@@ -1,5 +1,3 @@
-require 'csv'
-
 class SumofTwo
   attr_accessor :numa, :numb
 
@@ -13,5 +11,9 @@ class SumofTwo
   end
 end
 
+file = File.open('lib/tester.rb')
+file_data2 = file.readlines.map(&:chomp)
+p file_data2
+file.close
 
-
+File.foreach('lib/tester.rb') {|line| p line}
