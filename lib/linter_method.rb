@@ -1,9 +1,10 @@
 class TestFile
-  attr_accessor :file_data
+  attr_accessor :file_data, :file_open
 
   def initialize(file)
-    file_data = File.open(file).readlines.map(&:chomp)
-    @file = file
+    file_open = File.open(file)
+    file_data = file_open.readlines.map(&:chomp)
+    @file_open = file_open
     @file_data = file_data
   end
 
@@ -12,7 +13,12 @@ class TestFile
       p elem
     end
   end
+
+  def close_file
+    file_open.close
+  end
 end
 
 some = TestFile.new('lib/tester.rb')
 some.prints
+some.close_file
