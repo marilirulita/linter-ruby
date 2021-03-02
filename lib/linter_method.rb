@@ -11,9 +11,21 @@ class SumofTwo
   end
 end
 
-file = File.open('lib/tester.rb')
-file_data2 = file.readlines.map(&:chomp)
-p file_data2
-file.close
+class TestFile
+  attr_accessor :file_data
 
-File.foreach('lib/tester.rb') {|line| p line}
+  def initialize(file)
+    file_data = File.open(file).readlines.map(&:chomp)
+    @file = file
+    @file_data = file_data
+  end
+
+  def prints
+    file_data.each do |elem|
+      p elem
+    end
+  end
+end
+
+some = TestFile.new('lib/tester.rb')
+some.prints
