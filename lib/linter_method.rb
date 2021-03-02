@@ -12,13 +12,10 @@ class TestFile
     file_data.each do |elem|
       p elem
     end
-  end
-
-  def close_file
     file_open.close
   end
+
 end
 
 some = TestFile.new('lib/tester.rb')
 some.prints
-some.close_file
