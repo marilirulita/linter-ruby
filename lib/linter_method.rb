@@ -1,3 +1,5 @@
+require 'csv'
+
 class SumofTwo
   attr_accessor :numa, :numb
 
@@ -10,3 +12,6 @@ class SumofTwo
     numa + numb
   end
 end
+
+
+
