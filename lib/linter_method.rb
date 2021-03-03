@@ -25,6 +25,26 @@ class TestFile
     file_open.close
   end
 
+  def check_indentation
+    #code for check correct indentation
+  end
+
+  def check_end
+    #code for check if there is an end missing or unexpected
+  end
+
+  def check_bracket
+    #code for check missing or unexpected bracket
+  end
+
+  def check_spaces
+    #code for check double spaces or spaces at the end
+  end
+
+  def check_line
+    #code for check missing lines or unexpected 
+  end
+
 end
 
 some = TestFile.new('lib/tester.rb')
