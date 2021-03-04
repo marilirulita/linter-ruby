@@ -9,32 +9,55 @@ class TestFile
   end
 
   def prints
-    i = 0
-    file_data.each_with_index do |elem, a|
-      p elem
-      if elem.include?("class") && elem[0] == " "
-        puts "line #{a + 1} There is an empty space"
-      elsif elem.include?("def") && elem[2] == " "
-        puts "line #{a + 1} There is an empty space"
-        i += 2
-      elsif elem.include?("end") && elem[i] == " "
-        puts "line #{a + 1} There is an empty space"
-        i -= 2
-      end
-    end
+    #prints data
     file_open.close
   end
 
   def check_indentation
-    #code for check correct indentation
+    i = 0
+    file_data.each_with_index do |elem, a|
+      p elem
+      if elem.include?("class ") && elem[0] == " "
+        puts "line #{a + 1} There is an empty space at beginning"
+      elsif elem.include?("def ") && elem[2] == " "
+        puts "line #{a + 1} There is an empty space at beginning"
+        i += 2
+      elsif elem.include?("end") && elem[i] == " "
+        puts "line #{a + 1} There is an empty space at beginning"
+        i -= 2
+      end
+    end
   end
 
   def check_end
-    #code for check if there is an end missing or unexpected
+    m = 0
+    options = ["class ", "def ", "if ", "do "]
+    file_data.each_with_index do |elem, a|
+      i = 0
+      4.times do
+        x = options[i].to_s
+        if elem.include?(x)
+          m += 1
+        end
+        i += 1
+      end
+      if elem.include?("end")
+        m -= 1        
+      end
+    end
+    if m > 0
+      puts "There is a missing end"
+    elsif m < 0
+      puts "There is an unexpected end"
+    end
   end
 
   def check_bracket
     #code for check missing or unexpected bracket
+    options = [["(", ")"], ["{", "}"], ["[", "]"]]
+    file_data.each_with_index do |elem, a|
+      
+    end
   end
 
   def check_spaces
@@ -48,4 +71,5 @@ class TestFile
 end
 
 some = TestFile.new('lib/tester.rb')
-some.prints
+#some.check_indentation
+some.check_end
