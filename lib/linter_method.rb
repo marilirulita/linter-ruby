@@ -79,9 +79,16 @@ class TestFile
     #code for check missing lines or unexpected
   end
 
+  def write_doc 
+    File.open("lib/tester.rb", "a") {|f| f.write "'Something new to share'\n"}
+    File.write("lib/tester.rb", [1, 2, 3].join("\n"), mode: "a")
+    File.write("lib/tester.rb", 1, mode: "a")
+    File.stat("lib/tester.rb")
+  end
 end
 
 some = TestFile.new('lib/tester.rb')
 #some.check_indentation
-some.check_end
-some.check_spaces
+#some.check_end
+#some.check_spaces
+#some.write_doc
