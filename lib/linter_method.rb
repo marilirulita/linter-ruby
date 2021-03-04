@@ -33,6 +33,7 @@ class TestFile
     m = 0
     options = ["class ", "def ", "if ", "do "]
     file_data.each_with_index do |elem, a|
+      p elem
       i = 0
       4.times do
         x = options[i].to_s
@@ -55,17 +56,27 @@ class TestFile
   def check_bracket
     #code for check missing or unexpected bracket
     options = [["(", ")"], ["{", "}"], ["[", "]"]]
+    m = 0
     file_data.each_with_index do |elem, a|
-      
+      if elem.include?("(")
+        m += 1
+      elsif elem.include?(")")
+        m -= 1
+      end
     end
   end
 
   def check_spaces
     #code for check double spaces or spaces at the end
+    file_data.each_with_index do |elem, a|
+      if elem[-1] == " "
+        puts "Line #{a + 1}, there is an empty space at the end" 
+      end
+    end
   end
 
   def check_line
-    #code for check missing lines or unexpected 
+    #code for check missing lines or unexpected
   end
 
 end
@@ -73,3 +84,4 @@ end
 some = TestFile.new('lib/tester.rb')
 #some.check_indentation
 some.check_end
+some.check_spaces
