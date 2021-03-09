@@ -16,7 +16,6 @@ class TestFile
   def check_indentation
     i = 0
     file_data.each_with_index do |elem, a|
-      p elem
       if elem.include?("class ") && elem[0] == " "
         puts "line #{a + 1} There is an empty space at beginning"
       elsif elem.include?("def ") && elem[2] == " "
@@ -33,7 +32,6 @@ class TestFile
     m = 0
     options = ["class ", "def ", "if ", "do "]
     file_data.each_with_index do |elem, a|
-      p elem
       i = 0
       4.times do
         x = options[i].to_s
@@ -90,6 +88,15 @@ class TestFile
 
   def check_line
     #code for check missing lines or unexpected
+    #I need to check for the \n in a read file method and compare it with the def, class, end etc
+    file_data.each_with_index do |elem, a|
+      p elem == ""
+      p elem.match? /\m/
+      p elem
+      if elem.match(/\m/)
+        puts "Line #{a + 1}, There is an empty line"
+      end
+    end
   end
 
   #This method will fix errors, maybe
@@ -104,5 +111,6 @@ end
 some = TestFile.new('lib/tester.rb')
 #some.check_indentation
 #some.check_end
-some.check_bracket
+#some.check_bracket
 #some.check_spaces
+some.check_line
