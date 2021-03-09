@@ -68,9 +68,19 @@ class TestFile
 
   def check_spaces
     #code for check double spaces or spaces at the end
+    reg_doub_space = /\w+\s{2}/ #looks for double spaces after a word
+
+    file_data.each_with_index do |elem, a|
+      if elem.match?(reg_doub_space)
+        puts "Line #{a + 1}, there is doble space"
+        p elem
+      end
+    end
+
     file_data.each_with_index do |elem, a|
       if elem[-1] == " "
-        puts "Line #{a + 1}, there is an empty space at the end" 
+        puts "Line #{a + 1}, there is an empty space at the end"
+        p elem 
       end
     end
   end
@@ -79,6 +89,7 @@ class TestFile
     #code for check missing lines or unexpected
   end
 
+  #This method will fix errors, maybe
   def write_doc 
     File.open("lib/tester.rb", "a") {|f| f.write "'Something new to share'\n"}
     File.write("lib/tester.rb", [1, 2, 3].join("\n"), mode: "a")
@@ -90,5 +101,4 @@ end
 some = TestFile.new('lib/tester.rb')
 #some.check_indentation
 #some.check_end
-#some.check_spaces
-#some.write_doc
+some.check_spaces
