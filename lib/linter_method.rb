@@ -56,12 +56,15 @@ class TestFile
   def check_bracket
     #code for check missing or unexpected bracket
     options = [["(", ")"], ["{", "}"], ["[", "]"]]
-    m = 0
     file_data.each_with_index do |elem, a|
-      if elem.include?("(")
-        m += 1
-      elsif elem.include?(")")
-        m -= 1
+      firsta = elem.scan(/\(/).length
+      firstb = elem.scan(/\)/).length
+      seconda = elem.scan(/\{/).length
+      secondb = elem.scan(/\}/).length
+      thirda = elem.scan(/\[/).length
+      thirdb = elem.scan(/\]/).length
+      if firsta != firstb || seconda != secondb || thirda != thirdb
+        puts "line #{a + 1}, There is a missing or unexpected parenthesis or braket"
       end
     end
   end
@@ -101,4 +104,5 @@ end
 some = TestFile.new('lib/tester.rb')
 #some.check_indentation
 #some.check_end
-some.check_spaces
+some.check_bracket
+#some.check_spaces
