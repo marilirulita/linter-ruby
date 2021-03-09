@@ -9,19 +9,19 @@ class TestFile
   end
 
   def prints
-    #prints data
+    # prints data
     file_open.close
   end
 
   def check_indentation
     i = 0
     file_data.each_with_index do |elem, a|
-      if elem.include?("class ") && elem[0] == " "
+      if elem.include?('class ') && elem[0] == ' '
         puts "line #{a + 1} There is an empty space at beginning"
-      elsif elem.include?("def ") && elem[2] == " "
+      elsif elem.include?('def ') && elem[2] == ' '
         puts "line #{a + 1} There is an empty space at beginning"
         i += 2
-      elsif elem.include?("end") && elem[i] == " "
+      elsif elem.include?('end') && elem[i] == ' '
         puts "line #{a + 1} There is an empty space at beginning"
         i -= 2
       end
@@ -30,30 +30,26 @@ class TestFile
 
   def check_end
     m = 0
-    options = ["class ", "def ", "if ", "do "]
-    file_data.each_with_index do |elem, a|
+    options = ['class ', 'def ', 'if ', 'do ']
+    file_data.each_with_index do |elem, _a|
       i = 0
       4.times do
         x = options[i].to_s
-        if elem.include?(x)
-          m += 1
-        end
+        m += 1 if elem.include?(x)
         i += 1
       end
-      if elem.include?("end")
-        m -= 1        
-      end
+      m -= 1 if elem.include?('end')
     end
     if m > 0
-      puts "There is a missing end"
+      puts 'There is a missing end'
     elsif m < 0
-      puts "There is an unexpected end"
+      puts 'There is an unexpected end'
     end
   end
 
   def check_bracket
-    #code for check missing or unexpected bracket
-    options = [["(", ")"], ["{", "}"], ["[", "]"]]
+    # code for check missing or unexpected bracket
+    options = [['(', ')'], ['{', '}'], ['[', ']']]
     file_data.each_with_index do |elem, a|
       firsta = elem.scan(/\(/).length
       firstb = elem.scan(/\)/).length
@@ -68,8 +64,8 @@ class TestFile
   end
 
   def check_spaces
-    #code for check double spaces or spaces at the end
-    reg_doub_space = /\w+\s{2}/ #looks for double spaces after a word
+    # code for check double spaces or spaces at the end
+    reg_doub_space = /\w+\s{2}/ # looks for double spaces after a word
 
     file_data.each_with_index do |elem, a|
       if elem.match?(reg_doub_space)
@@ -79,38 +75,36 @@ class TestFile
     end
 
     file_data.each_with_index do |elem, a|
-      if elem[-1] == " "
+      if elem[-1] == ' '
         puts "Line #{a + 1}, there is an empty space at the end"
-        p elem 
+        p elem
       end
     end
   end
 
   def check_line
-    #code for check missing lines or unexpected
-    #I need to check for the \n in a read file method and compare it with the def, class, end etc
+    # code for check missing lines or unexpected
+    # I need to check for the \n in a read file method and compare it with the def, class, end etc
     file_data.each_with_index do |elem, a|
-      p elem == ""
-      p elem.match? /\m/
+      p elem == ''
+      p(elem.match?(/\m/))
       p elem
-      if elem.match(/\m/)
-        puts "Line #{a + 1}, There is an empty line"
-      end
+      puts "Line #{a + 1}, There is an empty line" if elem.match(/\m/)
     end
   end
 
-  #This method will fix errors, maybe
-  def write_doc 
-    File.open("lib/tester.rb", "a") {|f| f.write "'Something new to share'\n"}
-    File.write("lib/tester.rb", [1, 2, 3].join("\n"), mode: "a")
-    File.write("lib/tester.rb", 1, mode: "a")
-    File.stat("lib/tester.rb")
+  # This method will fix errors, maybe
+  def write_doc
+    File.open('lib/tester.rb', 'a') { |f| f.write "'Something new to share'\n" }
+    File.write('lib/tester.rb', [1, 2, 3].join("\n"), mode: 'a')
+    File.write('lib/tester.rb', 1, mode: 'a')
+    File.stat('lib/tester.rb')
   end
 end
 
 some = TestFile.new('lib/tester.rb')
-#some.check_indentation
-#some.check_end
-#some.check_bracket
-#some.check_spaces
+# some.check_indentation
+# some.check_end
+# some.check_bracket
+# some.check_spaces
 some.check_line
