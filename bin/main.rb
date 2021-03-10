@@ -2,6 +2,8 @@
 
 require './lib/linter_method'
 
+puts 'Hello world'
+
 some = TestFile.new('lib/tester.rb')
 some.check_indent
 some.check_end
