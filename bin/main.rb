@@ -1,8 +1,4 @@
-#!/usr/bin/env ruby
-
 require './lib/linter_method'
-
-puts 'Hello world'
 
 some = TestFile.new('lib/tester.rb')
 some.check_indent
