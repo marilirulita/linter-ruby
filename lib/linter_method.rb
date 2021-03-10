@@ -13,15 +13,10 @@ class TestFile
     file_open.close
   end
 
-  def check_indentation
-    i = 0
+  def check_indent
     file_data.each_with_index do |elem, a|
       if (elem.include?('class ') && elem[0] == ' ') || (elem.include?('def ') && elem[2] == ' ')
-        puts "line #{a + 1} There is an empty space at beginning"
-        i += 2
-      elsif elem.include?('end') && elem[i] == ' '
-        puts "line #{a + 1} There is an empty space at beginning"
-        i -= 2
+        puts "Line #{a + 1}, There is an empty space at beginning"
       end
     end
   end
@@ -93,9 +88,7 @@ class TestFile
 end
 
 some = TestFile.new('lib/tester.rb')
-some.check_indentation
+some.check_indent
 # some.check_end
 # some.check_bracket
 # some.check_spaces
-
-# puts "line #{a + 1} There is an empty space at beginning"
