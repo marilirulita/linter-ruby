@@ -1,3 +1,3 @@
 #!/usr/bin/env ruby
 
-require './lib/linter_method.rb'
+require './lib/linter_method'
