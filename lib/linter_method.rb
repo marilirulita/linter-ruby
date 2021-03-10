@@ -26,6 +26,7 @@ class TestFile
         i -= 2
       end
     end
+    file_open.close
   end
 
   def check_end
@@ -45,6 +46,7 @@ class TestFile
     elsif m < 0
       puts 'There is an unexpected end'
     end
+    file_open.close
   end
 
   def check_bracket
@@ -61,6 +63,7 @@ class TestFile
         puts "line #{a + 1}, There is a missing or unexpected parenthesis or braket"
       end
     end
+    file_open.close
   end
 
   def check_spaces
@@ -80,17 +83,7 @@ class TestFile
         p elem
       end
     end
-  end
-
-  def check_line
-    # code for check missing lines or unexpected
-    # I need to check for the \n in a read file method and compare it with the def, class, end etc
-    file_data.each_with_index do |elem, a|
-      p elem == ''
-      p(elem.match?(/\m/))
-      p elem
-      puts "Line #{a + 1}, There is an empty line" if elem.match(/\m/)
-    end
+    file_open.close
   end
 
   # This method will fix errors, maybe
@@ -101,10 +94,10 @@ class TestFile
     File.stat('lib/tester.rb')
   end
 end
-
+  
+end
 some = TestFile.new('lib/tester.rb')
-# some.check_indentation
+ some.check_indentation
 # some.check_end
 # some.check_bracket
 # some.check_spaces
-some.check_line
