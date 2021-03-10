@@ -95,9 +95,8 @@ class TestFile
   end
 end
   
-end
 some = TestFile.new('lib/tester.rb')
- some.check_indentation
+some.check_indentation
 # some.check_end
 # some.check_bracket
 # some.check_spaces

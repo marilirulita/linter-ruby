@@ -3,5 +3,5 @@ class  Test
     x = arg + arg
      
 
-    
-  end
+
+end
