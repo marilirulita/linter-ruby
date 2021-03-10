@@ -16,9 +16,7 @@ class TestFile
   def check_indentation
     i = 0
     file_data.each_with_index do |elem, a|
-      if elem.include?('class ') && elem[0] == ' '
-        puts "line #{a + 1} There is an empty space at beginning"
-      elsif elem.include?('def ') && elem[2] == ' '
+      if (elem.include?('class ') && elem[0] == ' ') || (elem.include?('def ') && elem[2] == ' ')
         puts "line #{a + 1} There is an empty space at beginning"
         i += 2
       elsif elem.include?('end') && elem[i] == ' '
@@ -26,7 +24,6 @@ class TestFile
         i -= 2
       end
     end
-    file_open.close
   end
 
   def check_end
@@ -41,9 +38,9 @@ class TestFile
       end
       m -= 1 if elem.include?('end')
     end
-    if m > 0
+    if m.positive?
       puts 'There is a missing end'
-    elsif m < 0
+    elsif m.negative?
       puts 'There is an unexpected end'
     end
     file_open.close
@@ -51,7 +48,6 @@ class TestFile
 
   def check_bracket
     # code for check missing or unexpected bracket
-    options = [['(', ')'], ['{', '}'], ['[', ']']]
     file_data.each_with_index do |elem, a|
       firsta = elem.scan(/\(/).length
       firstb = elem.scan(/\)/).length
@@ -66,7 +62,7 @@ class TestFile
     file_open.close
   end
 
-  def check_spaces
+  def check_end_spaces
     # code for check double spaces or spaces at the end
     reg_doub_space = /\w+\s{2}/ # looks for double spaces after a word
 
@@ -76,14 +72,15 @@ class TestFile
         p elem
       end
     end
+  end
 
+  def check_doub_spaces
     file_data.each_with_index do |elem, a|
       if elem[-1] == ' '
         puts "Line #{a + 1}, there is an empty space at the end"
         p elem
       end
     end
-    file_open.close
   end
 
   # This method will fix errors, maybe
@@ -100,3 +97,5 @@ some.check_indentation
 # some.check_end
 # some.check_bracket
 # some.check_spaces
+
+# puts "line #{a + 1} There is an empty space at beginning"
