@@ -94,7 +94,7 @@ class TestFile
     File.stat('lib/tester.rb')
   end
 end
-  
+
 some = TestFile.new('lib/tester.rb')
 some.check_indentation
 # some.check_end
