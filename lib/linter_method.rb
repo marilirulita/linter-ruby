@@ -56,7 +56,7 @@ class TestFile
   end
 
   def check_end_spaces(some)
-    some[-1] == ' ' ? true : false
+    some[-1] == ' '
   end
 
   # This method will fix errors, maybe
@@ -68,13 +68,11 @@ class TestFile
   end
 end
 
-=begin
-  
-test = TestFile.new('lib/tester.rb')
-something = "this is a string "
-def new_method(som)
-  som[-1] == ' ' ? true : false
-end
-
-p new_method(something)
-=end
+#
+# test = TestFile.new('lib/tester.rb')
+# something = "this is a string "
+# def new_method(som)
+#   som[-1] == ' ' ? true : false
+# end
+#
+# p new_method(something)
