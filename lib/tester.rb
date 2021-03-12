@@ -17,6 +17,8 @@ def new_method(some)
       return true if some.include?(elem) 
     end
 
+
+
   p "There is a missing or unexpected parenthesis or braket" if seconda != secondb
 end
 

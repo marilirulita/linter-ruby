@@ -23,16 +23,8 @@ class TestFile
     end
   end
 
-  def check_end
-    m = 0
-    file_data.each do |elem|
-      if initial_block?(elem) == true
-        m += 1
-      elsif elem.include?('end')
-        m -= 1
-      end
-    end
-    return m
+  def check_end(some)
+    return true if some =~ /^\s*end\s*/
   end
 
   def check_parentheses(some)
