@@ -53,20 +53,19 @@ class TestFile
   end
 
   def check_doub_spaces
-    # code for check double spaces or spaces at the end
-
+    arr = []
     file_data.each_with_index do |elem, a|
-      if elem.match?(/\w+\s{2}/)
-        puts "Line #{a + 1}, there is doble space"
-        p elem
-      end
+      arr.push(a + 1) if elem.match?(/\w+\s{2}/)
     end
+    arr
   end
 
   def check_end_spaces
+    arr = []
     file_data.each_with_index do |elem, a|
-      return a + 1 if elem[-1] == ' '
+      arr.push(a + 1) if elem[-1] == ' '
     end
+    arr
   end
 
   # This method will fix errors, maybe
