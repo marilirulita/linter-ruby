@@ -16,24 +16,23 @@ class TestFile
     end
   end
 
+  def initial_block?(some)
+    arr = [/^\s*class\s/, /^\s*def\s/, /^\s*if\s/, /do\s*$/, /do\s/]
+    arr.each do |elem|
+      return true if some =~ elem 
+    end
+  end
+
   def check_end
     m = 0
-    options = ['class ', 'def ', 'if ', 'do ']
-    file_data.each_with_index do |elem, _a|
-      i = 0
-      4.times do
-        x = options[i].to_s
-        m += 1 if elem.include?(x)
-        i += 1
+    file_data.each do |elem|
+      if initial_block?(elem) == true
+        m += 1
+      elsif elem.include?('end')
+        m -= 1
       end
-      m -= 1 if elem.include?('end')
     end
-    if m.positive?
-      puts 'There is a missing end'
-    elsif m.negative?
-      puts 'There is an unexpected end'
-    end
-    file_open.close
+    return m
   end
 
   def check_parentheses(some)
@@ -70,17 +69,20 @@ class TestFile
     File.stat('lib/tester.rb')
   end
 end
-
-=begin
   
-test = TestFile.new('lib/tester.rb')
-something = "def  test_method(arg) {this is a block "
+=begin
+
+
+something = "defa  test_method(arg) {this is a block "
+someth = "4.times don"
+
 def new_method(some)
-  seconda = some.scan(/\{/).length
-  secondb = some.scan(/\}/).length
-  p "There is a missing or unexpected parenthesis or braket" if seconda != secondb
+  arr = [/^\s*class\s/, /^\s*def\s/, /^\s*if\s/, /do\s*$/, /do\s/]
+  arr.each do |elem|
+    return true if some =~ elem 
+  end
 end
 
-new_method(something)
+p "this is true" if new_method(someth) == true
 
 =end
