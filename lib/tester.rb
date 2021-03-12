@@ -17,12 +17,21 @@ def new_method(some)
       return true if some.include?(elem) 
 
     end
-  end
-end
-
 
 
   p "There is a missing or unexpected parenthesis or braket" if seconda != secondb
 end
 
 new_method(something)
+
+something = "defa  test_method(arg) {this is a block "
+# someth = "4.times don"
+#
+# def new_method(some)
+#   arr = [/^\s*class\s/, /^\s*def\s/, /^\s*if\s/, /do\s*$/, /do\s/]
+#   arr.each do |elem|
+#     return true if some =~ elem
+#   end
+# end
+#
+# p "this is true" if new_method(someth) == true

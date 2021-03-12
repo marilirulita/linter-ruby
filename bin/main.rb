@@ -3,7 +3,7 @@ require './lib/linter_method'
 # some.check_indent
 
 class Prints
-  attr_accessor :some, :size
+  attr_reader :some, :size
 
   def initialize(arg)
     some = TestFile.new(arg)
@@ -12,27 +12,26 @@ class Prints
     @size = size
   end
 
-  def prints
+  def prints_puts
     some.file_data.each_with_index do |elem, a|
       puts "Line #{a + 1}, there is an empty space at the end" if some.end_spaces(elem) == true
       puts "Line #{a + 1}, there is a doble space between words" if some.doub_spaces(elem) == true
       puts "line #{a + 1}, There is a missing or unexpected curly braces" if some.curly_brace(elem) == true
       puts "line #{a + 1}, There is a missing or unexpected braket" if some.square_bracket(elem) == true
       puts "line #{a + 1}, There is a missing or unexpected parentheses" if some.check_parentheses(elem) == true
-      puts "something to say"
+      puts 'something to say'
     end
   end
 
+  def prints_end
+    if some.unex_miss_end.positive?
+      puts "Line #{size + 1}, There is a missing end"
+    elsif some.unex_miss_end.negative?
+      puts "Line #{size + 1}, There is an unexpected end"
+    end
+  end
 end
 
 car = Prints.new('lib/tester.rb')
-car.prints
-
-
-car = prints('lib/tester.rb')
-if car[0].positive?
-  puts "Line #{car[1] + 1}, There is a missing end"
-elsif car[0].negative?
-  puts "Line #{car[1] + 1}, There is an unexpected end"
-end
-=end
+car.prints_puts
+car.prints_end
