@@ -57,19 +57,18 @@ class TestFile
     file_open.close
   end
 
-  def check_end_spaces
+  def check_doub_spaces
     # code for check double spaces or spaces at the end
-    reg_doub_space = /\w+\s{2}/ # looks for double spaces after a word
 
     file_data.each_with_index do |elem, a|
-      if elem.match?(reg_doub_space)
+      if elem.match?(/\w+\s{2}/)
         puts "Line #{a + 1}, there is doble space"
         p elem
       end
     end
   end
 
-  def check_doub_spaces
+  def check_end_spaces
     file_data.each_with_index do |elem, a|
       if elem[-1] == ' '
         puts "Line #{a + 1}, there is an empty space at the end"
@@ -86,3 +85,8 @@ class TestFile
     File.stat('lib/tester.rb')
   end
 end
+
+file_open = File.open('./lib/tester.rb')
+file_data = file_open.read
+p file_data
+file_data.close
