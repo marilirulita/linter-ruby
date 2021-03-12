@@ -36,30 +36,29 @@ class TestFile
     file_open.close
   end
 
-  def check_bracket
-    # code for check missing or unexpected bracket
-    file_data.each_with_index do |elem, a|
-      firsta = elem.scan(/\(/).length
-      firstb = elem.scan(/\)/).length
-      thirda = elem.scan(/\[/).length
-      thirdb = elem.scan(/\]/).length
-      if firsta != firstb || thirda != thirdb
-        puts "line #{a + 1}, There is a missing or unexpected parenthesis or braket"
-      end
-    end
+  def check_parentheses(some)
+    first = some.scan(/\(/).length
+    last = some.scan(/\)/).length
+    first != last ? true : false
   end
 
-  def check_curly_brace(some)
-    seconda = some.scan(/\{/).length
-    secondb = some.scan(/\}/).length
-    seconda != secondb ? true : false
+  def square_bracket(some)
+    first = some.scan(/\[/).length
+    last = some.scan(/\]/).length
+    first != last ? true : false
   end
 
-  def check_doub_spaces(some)
+  def curly_brace(some)
+    first = some.scan(/\{/).length
+    last = some.scan(/\}/).length
+    first != last ? true : false
+  end
+
+  def doub_spaces(some)
     some.match?(/\w+\s{2}/)
   end
 
-  def check_end_spaces(some)
+  def end_spaces(some)
     some[-1] == ' '
   end
 
