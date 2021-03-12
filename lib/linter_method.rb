@@ -8,11 +8,6 @@ class TestFile
     @file_data = file_data
   end
 
-  def prints
-    # prints data
-    file_open.close
-  end
-
   def check_indent
     file_data.each_with_index do |elem, a|
       if (elem.include?('class ') && elem[0] == ' ') || (elem.include?('def ') && elem[2] == ' ')
@@ -70,10 +65,7 @@ class TestFile
 
   def check_end_spaces
     file_data.each_with_index do |elem, a|
-      if elem[-1] == ' '
-        puts "Line #{a + 1}, there is an empty space at the end"
-        p elem
-      end
+      return a + 1 if elem[-1] == ' '
     end
   end
 
@@ -85,8 +77,3 @@ class TestFile
     File.stat('lib/tester.rb')
   end
 end
-
-file_open = File.open('./lib/tester.rb')
-file_data = file_open.read
-p file_data
-file_data.close
