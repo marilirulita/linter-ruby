@@ -49,23 +49,14 @@ class TestFile
         puts "line #{a + 1}, There is a missing or unexpected parenthesis or braket"
       end
     end
-    file_open.close
   end
 
-  def check_doub_spaces
-    arr = []
-    file_data.each_with_index do |elem, a|
-      arr.push(a + 1) if elem.match?(/\w+\s{2}/)
-    end
-    arr
+  def check_doub_spaces(some)
+    some.match?(/\w+\s{2}/)
   end
 
-  def check_end_spaces
-    arr = []
-    file_data.each_with_index do |elem, a|
-      arr.push(a + 1) if elem[-1] == ' '
-    end
-    arr
+  def check_end_spaces(some)
+    some[-1] == ' ' ? true : false
   end
 
   # This method will fix errors, maybe
@@ -76,3 +67,14 @@ class TestFile
     File.stat('lib/tester.rb')
   end
 end
+
+=begin
+  
+test = TestFile.new('lib/tester.rb')
+something = "this is a string "
+def new_method(som)
+  som[-1] == ' ' ? true : false
+end
+
+p new_method(something)
+=end
