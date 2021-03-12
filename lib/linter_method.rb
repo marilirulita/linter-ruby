@@ -41,14 +41,18 @@ class TestFile
     file_data.each_with_index do |elem, a|
       firsta = elem.scan(/\(/).length
       firstb = elem.scan(/\)/).length
-      seconda = elem.scan(/\{/).length
-      secondb = elem.scan(/\}/).length
       thirda = elem.scan(/\[/).length
       thirdb = elem.scan(/\]/).length
-      if firsta != firstb || seconda != secondb || thirda != thirdb
+      if firsta != firstb || thirda != thirdb
         puts "line #{a + 1}, There is a missing or unexpected parenthesis or braket"
       end
     end
+  end
+
+  def check_curly_brace(some)
+    seconda = some.scan(/\{/).length
+    secondb = some.scan(/\}/).length
+    seconda != secondb ? true : false
   end
 
   def check_doub_spaces(some)
@@ -68,11 +72,16 @@ class TestFile
   end
 end
 
-#
-# test = TestFile.new('lib/tester.rb')
-# something = "this is a string "
-# def new_method(som)
-#   som[-1] == ' ' ? true : false
-# end
-#
-# p new_method(something)
+=begin
+  
+test = TestFile.new('lib/tester.rb')
+something = "def  test_method(arg) {this is a block "
+def new_method(some)
+  seconda = some.scan(/\{/).length
+  secondb = some.scan(/\}/).length
+  p "There is a missing or unexpected parenthesis or braket" if seconda != secondb
+end
+
+new_method(something)
+
+=end
