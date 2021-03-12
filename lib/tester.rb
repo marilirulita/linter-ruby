@@ -15,7 +15,10 @@ def new_method(some)
   else
     options.each do |elem|
       return true if some.include?(elem) 
+
     end
+  end
+end
 
 
 

@@ -1,12 +1,11 @@
 require './lib/linter_method'
 
 # some.check_indent
-# some.check_end
 
-def prints
-  some = TestFile.new('lib/tester.rb')
-  size = some.file_data.length
+def prints(arg)
+  some = TestFile.new(arg)
   num = 0
+  size = some.file_data.length
 
   some.file_data.each_with_index do |elem, a|
     puts "Line #{a + 1}, there is an empty space at the end" if some.end_spaces(elem) == true
@@ -17,12 +16,12 @@ def prints
     num += 1 if some.initial_block?(elem) == true
     num -= 1 if some.check_end(elem) == true
   end
-
-  if num.positive?
-    puts "Line #{size + 1}, There is a missing end"
-  elsif num.negative?
-    puts "Line #{size + 1}, There is an unexpected end"
-  end 
+  return num, size
 end
 
-prints
+car = prints('lib/tester.rb')
+if car[0].positive?
+  puts "Line #{car[1] + 1}, There is a missing end"
+elsif car[0].negative?
+  puts "Line #{car[1] + 1}, There is an unexpected end"
+end

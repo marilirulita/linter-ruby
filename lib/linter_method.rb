@@ -19,7 +19,7 @@ class TestFile
   def initial_block?(some)
     arr = [/^\s*class\s/, /^\s*def\s/, /^\s*if\s/, /do\s*$/, /do\s/]
     arr.each do |elem|
-      return true if some =~ elem 
+      return true if some =~ elem
     end
   end
 
@@ -30,19 +30,19 @@ class TestFile
   def check_parentheses(some)
     first = some.scan(/\(/).length
     last = some.scan(/\)/).length
-    first != last ? true : false
+    first != last
   end
 
   def square_bracket(some)
     first = some.scan(/\[/).length
     last = some.scan(/\]/).length
-    first != last ? true : false
+    first != last
   end
 
   def curly_brace(some)
     first = some.scan(/\{/).length
     last = some.scan(/\}/).length
-    first != last ? true : false
+    first != last
   end
 
   def doub_spaces(some)
@@ -61,20 +61,18 @@ class TestFile
     File.stat('lib/tester.rb')
   end
 end
-  
-=begin
 
-
-something = "defa  test_method(arg) {this is a block "
-someth = "4.times don"
-
-def new_method(some)
-  arr = [/^\s*class\s/, /^\s*def\s/, /^\s*if\s/, /do\s*$/, /do\s/]
-  arr.each do |elem|
-    return true if some =~ elem 
-  end
-end
-
-p "this is true" if new_method(someth) == true
-
-=end
+#
+#
+# something = "defa  test_method(arg) {this is a block "
+# someth = "4.times don"
+#
+# def new_method(some)
+#   arr = [/^\s*class\s/, /^\s*def\s/, /^\s*if\s/, /do\s*$/, /do\s/]
+#   arr.each do |elem|
+#     return true if some =~ elem
+#   end
+# end
+#
+# p "this is true" if new_method(someth) == true
+#
