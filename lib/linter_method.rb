@@ -27,6 +27,15 @@ class TestFile
     return true if some =~ /^\s*end\s*/
   end
 
+  def unex_miss_end
+    num = 0
+    file_data.each do |elem|
+      num += 1 if initial_block?(elem) == true
+      num -= 1 if check_end(elem) == true
+    end
+    num
+  end
+
   def check_parentheses(some)
     first = some.scan(/\(/).length
     last = some.scan(/\)/).length
