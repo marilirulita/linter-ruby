@@ -6,20 +6,21 @@
 
 ## Linter Instructions
 * This code gives information about errors in ruby typing
-* Each time you tun the code, it will review the ./lib/tester.rb file, which store an example of a bad code.
-* You can modify the ./lib/tester.rb file to see how it changes the different recommendations about correct typing of your code.
+* Each time you run the code, it will review the ./lib/tester.rb file, which store an example of a bad code.
+* You can modify the ./lib/tester.rb file to see how it changes the different recommendations about correct typing of your code, given in your console.
 
 ### Examples Good VS Bad code
 
->**Unexpected or missed end**
-* It checks if there is necessary to add or remove an end to close a block code.
+#### Unexpected or missed end
+
+>**It checks if there is necessary to add or remove an end to close a block code.**
 
 **Example of Bad code**
 
     class Test
       def test_method(arg)
         x = arg + arg
-            <---- **Missed end**
+            <---- Missed end
     end 
 
 **Example of Good code**
@@ -27,7 +28,7 @@
     class Test
       def test_method(arg)
         x = arg + arg
-      end   <---- **Unmissed end**
+      end   <---- Unmissed end
     end 
 
 
@@ -56,18 +57,21 @@
 
 ## How to run this project
 
-- Run the following command in the terminal
-  ```
+**Run the following command in the terminal**
+
 - Navigagte into the linter-ruby folder
   ```
   cd linter-ruby
   ```
 - Execute the "main.rb" file typing:
-
-   ruby ./bin/main.rb
-
-- You will see error messages to help you fix your code typing
-
+  ```
+  ruby ./bin/main.rb
+  ```
+- You will see error messages in your console to help you fix your code typing
+  ```
+  Line 17, there is an empty space at the end
+  Line 27, there is a doble space between words
+  ```
 
 ## Authors
 
