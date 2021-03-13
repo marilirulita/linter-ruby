@@ -4,6 +4,34 @@
 
 > In this project, I built my own linter tool, for check errors in ruby grammar. 
 
+## Linter Instructions
+* This code gives information about errors in ruby typing
+* Each time you tun the code, it will review the ./lib/tester.rb file, which store an example of a bad code.
+* You can modify the ./lib/tester.rb file to see how it changes the different recommendations about correct typing of your code.
+
+### Examples Good VS Bad code
+
+>**Unexpected or missed end**
+* It checks if there is necessary to add or remove an end to close a block code.
+
+**Example of Bad code**
+
+    class Test
+      def test_method(arg)
+        x = arg + arg
+            <---- **Missed end**
+    end 
+
+**Example of Good code**
+
+    class Test
+      def test_method(arg)
+        x = arg + arg
+      end   <---- **Unmissed end**
+    end 
+
+
+
 ## Built With
 
 - Ruby
