@@ -1,8 +1,9 @@
-def test.method
+def test_method
   2 + 2
 end
 
-
+=begin
+  
 require_relative '../lib/linter_method'
 require_relative './bin/main'
 require_relative './test_rspe'
@@ -26,9 +27,4 @@ describe Prints do
     end
   end
 end
-
-describe '#test.method' do
-  it 'returns 4' do
-    expect(test_method).to eql(4)
-  end
-end
+=end
