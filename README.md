@@ -2,7 +2,7 @@
 
 # linter-ruby
 
->**In this project, I built my linter tool, to check errors in ruby grammar. I chose a bot to check simple and common errors when typing ruby code because this is normally annoying when you try to keep code clean**
+>**In this project, I built my linter tool, to check errors in ruby grammar. I chose a bot to check simple and common errors when typing ruby code because this is normally annoying when you try to keep code clean.**
 
 ## Linter Instructions
 * This code gives information about errors in ruby typing

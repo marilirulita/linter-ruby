@@ -1,22 +1,35 @@
 require_relative '../lib/linter_method'
-
-describe SumofTwo do
-  let(:something) { SumofTwo.new(5, 8) }
-  describe '#adittion' do
-    it 'return a number 13' do
-      expect(something.adittion).to eql(13)
-    end
-  end
-end
+require './bin/main'
+require './test_rspe'
 
 describe TestFile do
-  let(:array) { %w[Mar Dany Sofia] }
+  let(:str) "def  test_method(arg) {this is a block "
+  let(:options) [1]
 
   describe '#initial_block' do
     it 'return true if a string match any array element' do
-      expect(initial_block(array)).to include('Dany')
+      test = TestFile.new('./bin/main.rb')
+      expect(test.initial_block(str)).to include('Dany')
     end
   end
 
 end
+
+describe Prints do
+
+  describe '#prints_puts' do
+    it 'return true if a string match any array element' do
+      test = "def  test_method(arg) {this is a block "
+      expect(prints_put).to include('Dany')
+    end
+  end
+
+end
+
+describe '#test.method' do
+  it 'returns 4' do
+    expect(test_method).to eql(4)
+  end
+end
+
 

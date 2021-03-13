@@ -62,7 +62,7 @@ class TestFile
     some[-1] == ' '
   end
 
-  # This method will fix errors, maybe
+  # This method will fix errors
   def write_doc
     File.open('lib/tester.rb', 'a') { |f| f.write "'Something new to share'\n" }
     File.write('lib/tester.rb', [1, 2, 3].join("\n"), mode: 'a')
