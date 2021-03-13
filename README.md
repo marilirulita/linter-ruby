@@ -32,6 +32,76 @@
     end 
 
 
+### Unexpected or missed parentheses
+
+>**It checks if there is necessary to add or remove a parentheses in a specific line of code**
+
+**Example of Bad code**
+
+  def  test_method(arg))  <---- Unexpected parentheses
+    x = arg + arg   
+  end 
+
+**Example of Good code**
+
+  def  test_method(arg)  <---- Expected parentheses
+    x = arg + arg   
+  end
+
+### Unexpected or missed square bracket
+
+>**It checks if there is necessary to add or remove a square bracket in a specific line of code**
+
+**Example of Bad code**
+
+  arr = [2, 3, 5]  
+  x = arr[1  <---- Missed square bracket
+
+**Example of Good code**
+  
+  arr = [2, 3, 5]  
+  x = arr[1]  <---- Expected square bracket
+
+
+### Unexpected or missed curly brace
+
+>**It checks if there is necessary to add or remove a curly brace in a specific line of code**
+
+**Example of Bad code**
+
+  test.each { |elem| elem + 2  <---- Missed curly brace
+
+**Example of Good code**
+  
+  test.each { |elem| elem + 2 }  <---- Unmissed curly brace
+
+
+### Look for double spaces
+
+>**It checks if there is any double space in a specific line of code**
+
+**Example of Bad code**
+
+    class | Test  <---- Double space between class and Test
+
+
+**Example of Good code**
+
+    class Test  <---- Correct space between class and Test
+
+### Look for spaces at end of line
+
+>**It checks if there is any space at the end in a specific line of code**
+
+**Example of Bad code**
+
+    class Test  |  <---- There is a space at the end of code line
+
+
+**Example of Good code**
+
+    class Test|  <---- Not space at the end of code line
+
 
 ## Built With
 
