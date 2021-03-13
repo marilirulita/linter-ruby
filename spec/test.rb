@@ -8,3 +8,15 @@ describe SumofTwo do
     end
   end
 end
+
+describe TestFile do
+  let(:array) { %w[Mar Dany Sofia] }
+
+  describe '#initial_block' do
+    it 'return true if a string match any array element' do
+      expect(initial_block(array)).to include('Dany')
+    end
+  end
+
+end
+
