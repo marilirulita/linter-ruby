@@ -1,6 +1,6 @@
 require_relative '../lib/linter_method'
-require './bin/main'
-require './test_rspe'
+require_relative './bin/main'
+require_relative './test_rspe'
 
 describe TestFile do
   let(:str) { 'def  test_method(arg) {this is a block ' }

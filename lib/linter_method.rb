@@ -16,6 +16,8 @@ class TestFile
     end
   end
 
+  private
+
   def initial_block(some)
     arr = [/^\s*class\s/, /^\s*def\s/, /^\s*if\s/, /do\s*$/, /do\s/]
     arr.each do |elem|
@@ -26,6 +28,8 @@ class TestFile
   def check_end(some)
     return true if some =~ /^\s*end\s*/
   end
+
+  public
 
   def unex_miss_end
     num = 0
