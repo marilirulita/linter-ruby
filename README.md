@@ -38,15 +38,15 @@
 
 **Example of Bad code**
 
-  def  test_method(arg))  <---- Unexpected parentheses
-    x = arg + arg   
-  end 
+    def  test_method(arg))  <---- Unexpected parentheses
+      x = arg + arg   
+    end 
 
 **Example of Good code**
 
-  def  test_method(arg)  <---- Expected parentheses
-    x = arg + arg   
-  end
+    def  test_method(arg)  <---- Expected parentheses
+      x = arg + arg   
+    end
 
 ### Unexpected or missed square bracket
 
@@ -54,13 +54,13 @@
 
 **Example of Bad code**
 
-  arr = [2, 3, 5]  
-  x = arr[1  <---- Missed square bracket
+    arr = [2, 3, 5]  
+    x = arr[1  <---- Missed square bracket
 
 **Example of Good code**
   
-  arr = [2, 3, 5]  
-  x = arr[1]  <---- Expected square bracket
+    arr = [2, 3, 5]  
+    x = arr[1]  <---- Expected square bracket
 
 
 ### Unexpected or missed curly brace
@@ -69,11 +69,11 @@
 
 **Example of Bad code**
 
-  test.each { |elem| elem + 2  <---- Missed curly brace
+    test.each { |elem| elem + 2  <---- Missed curly brace
 
 **Example of Good code**
   
-  test.each { |elem| elem + 2 }  <---- Unmissed curly brace
+    test.each { |elem| elem + 2 }  <---- Unmissed curly brace
 
 
 ### Look for double spaces
