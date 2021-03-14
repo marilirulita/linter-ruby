@@ -1,4 +1,4 @@
-require './test_rspe'
+require_relative './test_rspe'
 
 describe Calculator do
   describe "#add" do
