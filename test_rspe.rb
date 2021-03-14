@@ -27,4 +27,17 @@ describe Prints do
     end
   end
 end
+
+
+require_relative './test_rspe'
+
+def test_method
+  2 + 2
+end
+
+describe "#test_method" do
+  it "returns 4" do
+    expect(5+3).to eql(8)
+  end
+end
 =end
