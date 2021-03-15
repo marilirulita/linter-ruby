@@ -29,6 +29,10 @@ class Prints
   end
 end
 
-test = Prints.new('lib/tester.rb')
+test = Prints.new('lib/tester_good.rb') # any error found
 test.prints_puts
 test.prints_end
+
+test2 = Prints.new('lib/tester.rb')
+test2.prints_puts
+test2.prints_end
