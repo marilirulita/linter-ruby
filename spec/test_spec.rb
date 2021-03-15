@@ -1,8 +1,8 @@
 require './lib/linter_method'
 
 describe TestFile do
-  let(:test) {TestFile.new('./lib/tester.rb')}
-  let(:test2) {TestFile.new('./bin/main.rb')}
+  let(:test) { TestFile.new('./lib/tester.rb') }
+  let(:test2) { TestFile.new('./bin/main.rb') }
 
   describe '#unex_miss_end' do
     it 'return a positive num if there is a missing end' do
