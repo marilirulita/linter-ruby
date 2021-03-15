@@ -31,6 +31,6 @@ class Prints
   end
 end
 
-car = Prints.new('lib/tester.rb')
-car.prints_puts
-car.prints_end
+test = Prints.new('lib/tester.rb')
+test.prints_puts
+test.prints_end
