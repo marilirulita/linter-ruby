@@ -1,5 +1,3 @@
-#!/usr/bin/env ruby
-
 require './lib/linter_method'
 
 # some.check_indent
