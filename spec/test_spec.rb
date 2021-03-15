@@ -1,9 +1,5 @@
-require './test_rspe'
 require './lib/linter_method'
 
-# require './bin/main'
-# require_relative './test_rspe'
-#
 describe TestFile do
   let(:test) {TestFile.new('./lib/tester.rb')}
   let(:test2) {TestFile.new('./bin/main.rb')}
@@ -65,23 +61,6 @@ describe TestFile do
 
     it 'return false if there is not spaces at end of line' do
       expect(test.end_spaces('class NewClass(param)')).to be false
-    end
-  end
-end
-
-# describe Prints do
-#   describe '#prints_puts' do
-#     it 'return true if a string match any array element' do
-#       expect(prints_put).to include('Dany')
-#     end
-#   end
-# end
-
-describe Calculator do
-  describe '#add' do
-    it 'returns the sum of two numbers' do
-      calculator = Calculator.new
-      expect(calculator.add(5, 2)).to eql(7)
     end
   end
 end

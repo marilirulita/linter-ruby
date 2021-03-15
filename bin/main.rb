@@ -1,7 +1,5 @@
 require './lib/linter_method'
 
-# some.check_indent
-
 class Prints
   attr_reader :some, :size
 
