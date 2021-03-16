@@ -1,4 +1,4 @@
-require './lib/linter_method'
+require_relative '../lib/linter_method'
 
 class Prints
   attr_reader :some, :size

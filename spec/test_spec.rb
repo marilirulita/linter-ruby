@@ -1,4 +1,4 @@
-require './lib/linter_method'
+require_relative '../lib/linter_method'
 
 describe TestFile do
   let(:test) { TestFile.new('./tests/tester_bad.rb') }
