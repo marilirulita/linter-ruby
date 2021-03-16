@@ -1,16 +1,19 @@
 require_relative '../lib/linter_method'
 
 class Prints
-  attr_reader :some, :size
+  attr_reader :some, :size, :arg
 
   def initialize(arg)
     some = TestFile.new(arg)
     size = some.file_data.length
     @some = some
     @size = size
+    @arg = arg
   end
 
   def prints_puts
+    puts "-----------------------------------------------------"
+    puts arg + "\n\n"
     some.file_data.each_with_index do |elem, a|
       puts "Line #{a + 1}, there is an empty space at the end \n\n" if some.end_spaces(elem) == true
       puts "Line #{a + 1}, there is a doble space between words \n\n" if some.doub_spaces(elem) == true
@@ -29,7 +32,7 @@ class Prints
   end
 end
 
-test = Prints.new('./tests/tester_good.rb') # any error found
+test = Prints.new('./tests/tester_good.rb')
 test.prints_puts
 test.prints_end
 

@@ -4,5 +4,17 @@ class Test
   end
 end
 
-some = [1, 2, 3, 4]
-any = some.each { |elem| elem + 2 }
+something = "def test_method(arg)"
+def new_method(some)
+  arr = [/^\s*class\s/, /^\s*def\s/, /^\s*if\s/, /do\s*$/, /do\s/]
+  seconda = 1
+  secondb = 1
+  if 2+6 == 3+4
+    true
+  else
+    arr.each do |elem|
+      return true if some =~ elem
+    end
+  end
+  true if seconda != secondb
+end
