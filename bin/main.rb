@@ -12,9 +12,9 @@ class Prints
   end
 
   def prints_puts
-    puts "-----------------------------------------------------"
+    puts '-----------------------------------------------------'
     puts "File name: #{arg} \n\n"
-    puts "Found errors: "
+    puts 'Found errors: '
     some.file_data.each_with_index do |elem, a|
       puts "Line #{a + 1}, There is a space at the end. \n\n" if some.end_spaces(elem) == true
       puts "Line #{a + 1}, There is a double space between words. \n\n" if some.doub_spaces(elem) == true
