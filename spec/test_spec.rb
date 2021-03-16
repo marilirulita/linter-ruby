@@ -1,7 +1,7 @@
 require './lib/linter_method'
 
 describe TestFile do
-  let(:test) { TestFile.new('./lib/tester.rb') }
+  let(:test) { TestFile.new('./tests/tester_bad.rb') }
   let(:test2) { TestFile.new('./bin/main.rb') }
 
   describe '#unex_miss_end' do

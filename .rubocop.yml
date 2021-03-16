@@ -2,8 +2,8 @@ AllCops:
   Exclude:
     - "Guardfile"
     - "Rakefile"
-    - "lib/tester.rb"
-    - "lib/tester_good.rb"
+    - "tests/tester_bad.rb"
+    - "tests/tester_good.rb"
 
   DisplayCopNames: true
 
