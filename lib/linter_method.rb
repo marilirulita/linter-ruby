@@ -8,14 +8,6 @@ class TestFile
     @file_data = file_data
   end
 
-  def check_indent
-    file_data.each_with_index do |elem, a|
-      if (elem.include?('class ') && elem[0] == ' ') || (elem.include?('def ') && elem[2] == ' ')
-        puts "Line #{a + 1}, There is an empty space at beginning"
-      end
-    end
-  end
-
   private
 
   def initial_block(some)
@@ -64,12 +56,5 @@ class TestFile
 
   def end_spaces(some)
     some[-1] == ' '
-  end
-
-  def write_doc
-    File.open('lib/tester.rb', 'a') { |f| f.write "'Something new to share'\n" }
-    File.write('lib/tester.rb', [1, 2, 3].join("\n"), mode: 'a')
-    File.write('lib/tester.rb', 1, mode: 'a')
-    File.stat('lib/tester.rb')
   end
 end
