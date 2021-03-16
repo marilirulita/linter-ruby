@@ -6,14 +6,14 @@
 
 ## Linter Instructions
 * This code gives information about errors in ruby typing
-* Each time you run the code, it will review the ./lib/tester.rb file, which store an example of a bad code.
+* Each time you run the code, it will review the ./lib/tester.rb file, which stores an example of a bad code.
 * You can modify the ./lib/tester.rb file to see how it changes the different recommendations about correct typing of your code, given in your console.
 
 ## Examples Good VS Bad code
 
 ### Unexpected or missed end
 
->**It checks if there is necessary to add or remove an end to close a block code.**
+>**It checks if it is necessary to add or remove an end to close a block code.**
 
 **Example of Bad code**
 
@@ -34,7 +34,7 @@
 
 ### Unexpected or missed parentheses
 
->**It checks if there is necessary to add or remove a parentheses in a specific line of code**
+>**It checks if it is necessary to add or remove a parenthesis in a specific line of code**
 
 **Example of Bad code**
 
@@ -50,7 +50,7 @@
 
 ### Unexpected or missed square bracket
 
->**It checks if there is necessary to add or remove a square bracket in a specific line of code**
+>**It checks if it is necessary to add or remove a square bracket in a specific line of code**
 
 **Example of Bad code**
 
@@ -65,7 +65,7 @@
 
 ### Unexpected or missed curly brace
 
->**It checks if there is necessary to add or remove a curly brace in a specific line of code**
+>**It checks if it is necessary to add or remove a curly brace in a specific line of code**
 
 **Example of Bad code**
 
@@ -89,13 +89,13 @@
 
     class Test  <---- Correct space between class and Test
 
-### Look for spaces at end of line
+### Look for spaces at end of the line
 
 >**It checks if there is any space at the end in a specific line of code**
 
 **Example of Bad code**
 
-    class Test  |  <---- There is a space at the end of code line
+    class Test  |  <---- There is a space at the end of the code line
 
 
 **Example of Good code**
@@ -115,15 +115,15 @@
 
 - Make sure Ruby is installed on your computer
 
-- To get your own copy of our project simply clone the repository to your local machine.
+- To get your copy of our project simply clone the repository to your local machine.
 
 - Open CMD
 
-- Type the following command into a git shell
+- Type the following command into a git-shell
   ```
   git clone https://github.com/marilirulita/linter-ruby.git
   ```
-- Run the program from command line, then open it in a text editor
+- Run the program from the command line, then open it in a text editor
 
 ## How to run this project
 
@@ -139,8 +139,8 @@
   ```
 - You will see error messages in your console to help you fix your code typing
   ```
-  Line 17, there is an empty space at the end
-  Line 27, there is a doble space between words
+  Line 17, there is a space at the end
+  Line 27, there is a double space between words
   ```
 
 ## Authors
