@@ -73,3 +73,20 @@ class TestFile
     File.stat('lib/tester.rb')
   end
 end
+
+# indentations ------------------------------------------
+def check_indent(some)
+  file_data.each_with_index do |elem, a|
+    if (elem.include?('class ') && elem[0] == ' ') || (elem.include?('def ') && elem[2] == ' ')
+      puts "Line #{a + 1}, There is an empty space at beginning"
+    end
+  end
+end
+# necesito identificar cada iniciador de indentation {class = 0, def = 0 if not class before, 2 if ther is a class before}
+# for class
+class_block = false
+if some =~ /^\s*class/ && some[0] == ' '
+  class_block = true # indica que se ha abrido un bloque
+  return true # dara el mesaje de que hay mal indentation
+end
+check_indent

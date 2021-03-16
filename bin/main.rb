@@ -17,6 +17,7 @@ class Prints
       puts "line #{a + 1}, There is a missing or unexpected curly braces \n\n" if some.curly_brace(elem) == true
       puts "line #{a + 1}, There is a missing or unexpected braket \n\n" if some.square_bracket(elem) == true
       puts "line #{a + 1}, There is a missing or unexpected parentheses \n\n" if some.check_parentheses(elem) == true
+      puts "yes" if some.check_indent
     end
   end
 
